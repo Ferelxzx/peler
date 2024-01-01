@@ -1,0 +1,147 @@
+<!--Yang mbuat namanya Alvan BAng Kalo Mau nyomot serah sih-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cobak Cobak</title>
+    <link rel="icon" href="DSC_0018.JPG">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="particles-js"></div>
+    <a href="balap.html">
+        <button class="count-particles">
+            KLIK UNTUK LANJUT MENYIMAK TENTANG BUDAYA DI
+            DESA WONOSARI
+        </button>
+    </a>
+
+    <a hred="kti new.docx" download>
+        <button class="mboh">
+            Kti kita
+        </button>
+    </a>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+</body>
+<style>
+    body {
+        margin: 0;
+        font: normal 75% Arial, Helvetica, sans-serif;
+
+    }
+
+    .mboh {
+        background: #80ff3691;
+        position: absolute;
+        top: 100px;
+        left: 550px;
+        width: 240px;
+        min-height: 240px;
+        color: #000000;
+        font-size: .8em;
+        text-align: left;
+        text-indent: 4px;
+        line-height: 14px;
+        padding-bottom: 2px;
+        font-family: Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        text-align: center;
+        border: 2px solid #13e9e936;
+        font-family: 'Cabin', sans-serif;
+        font-size: 1rem;
+        text-indent: 1rem;
+    }
+
+
+    canvas {
+        vertical-align: bottom;
+        display: block;
+    }
+
+    #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgb(63, 94, 251);
+        background: radial-gradient(circle, #FF6978 0%, #350068 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+
+    .count-particles {
+        background: #f6821c91;
+        position: absolute;
+        top: 220px;
+        left: 550px;
+        width: 240px;
+        min-height: 240px;
+        color: #000000;
+        font-size: .8em;
+        text-align: left;
+        text-indent: 4px;
+        line-height: 14px;
+        padding-bottom: 2px;
+        font-family: Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        text-align: center;
+        border: 2px solid #13e9e936;
+        font-family: 'Cabin', sans-serif;
+        font-size: 1rem;
+        text-indent: 1rem;
+    }
+
+    .count-particles:hover {
+        cursor: pointer;
+        background-color: rgba(5, 197, 255, 0.528);
+        transition: 1s;
+        transform: scale(1.3);
+
+    }
+
+    .count-particles:active {
+        transform: scale(10);
+        background-color: rgba(255, 0, 0, 0.921);
+
+    }
+
+
+
+
+
+    #stats,
+    .count-particles {
+        -webkit-user-select: none;
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+
+    #stats {
+        border-radius: 3px 3px 0 0;
+        overflow: hidden;
+    }
+
+    .count-particles {
+        border-radius: 0 0 3px 3px;
+    }
+</style>
+
+<script>
+    particlesJS("particles-js", { "particles": { "number": { "value": 123, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#7348c3" }, "shape": { "type": "circle", "stroke": { "width": 1, "color": "#000000" }, "polygon": { "nb_sides": 8 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": true, "speed": 3.085893406745112, "opacity_min": 0.12181158184520177, "sync": false } }, "size": { "value": 2, "random": false, "anim": { "enable": true, "speed": 73.08694910712106, "size_min": 7.62997665227145, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "bubble" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true }); var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function () { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
+</script>
+
+</html>

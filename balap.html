@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="capi.css">
+</head>
+
+<body>
+
+
+
+    <div id="viewport" class="bkg-layer">
+        <div id="content" class="bkg-content-holder">
+            <div class="content-holder">
+                <header class="header">
+                    <div class="header-container flex flex-space-between-center">
+                        <div class="header-logo">
+                            <img src="Grebeg Memetri.png" alt="Yunicorn Logo Dark Colored" />
+                        </div>
+                        <div class="header-nav">
+                            <ul class="main-nav-list 
+                         flex-space-between link-spacer">
+                                <li>
+                                    <a href="#" class="main-nav-link link-cta-secondary"></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="main-nav-link link-cta">Simak.</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </header>
+                <div class="content-top position-relative">
+                    <div class="content-top-content">
+                        <div class="content-top-asset position-relative">
+                            <picture class="flex">
+                                <img src="https://yunicorn.vc/assets/home/bg/home-bg-hd-20.jpg"
+                                    alt="Mytological Creatures and Symbolic Imagery" class="body-bkg-img" />
+                            </picture>
+                            <div class="content-body-fade"></div>
+                        </div>
+                    </div>
+                    <div class="content-lines position-absolute flex flex-space-between-stretch">
+                        <div class="content-line content-line-0"></div>
+                        <div class="content-line content-line-1"></div>
+                        <div class="content-line content-line-2"></div>
+                        <div class="content-line content-line-3"></div>
+                    </div>
+                    <section class="section-hero flex flex-center-start position-relative">
+                        <div class="container flex flex-center-center-column">
+                            <div class="hero-title position-relative">
+                                <h1 class="hero-heading">
+                                    Sebuah
+                                    <span class="outsider">Tradisi</span><br />
+                                    Di Desa <br />
+                                    Wonosari
+                                </h1>
+                            </div>
+                            <div class="hero-bg">
+                                <div class="hero-bg-img">
+                                    <div class="hero-bg-pg pg-1 position-absolute">
+                                        <img src="	https://yunicorn.vc/assets/home/hero-pigeon-1.png" alt="Flying Pigeo"
+                                            class="img-fluid pigeons" />
+                                    </div>
+                                    <div class="hero-bg-pg pg-2 position-absolute">
+                                        <img src="	https://yunicorn.vc/assets/home/hero-pigeon-2.png" alt="Flying Pigeo"
+                                            class="img-fluid pigeons" />
+                                    </div>
+                                    <div class="hero-bg-pg pg-3 position-absolute">
+                                        <img src="	https://yunicorn.vc/assets/home/hero-pigeon-3.png"
+                                            alt="Flying Pigeon" class="img-fluid pigeons" />
+                                    </div>
+                                    <div class="hero-bg-pg pg-4 position-absolute">
+                                        <img src="	https://yunicorn.vc/assets/home/hero-pigeon-4.png"
+                                            alt="Flying Pigeon" class="img-fluid pigeons" />
+                                    </div>
+                                    <img src="https://th.bing.com/th/id/OIG.clrsklh.xZRnmN0V9qbZ?pid=ImgGn"
+                                        alt="Hero Image of a Greek Archaic Statue" class="hero-bg-img-main img-fluid"
+                                        style="display: sticky; bottom:0; top:0;">
+                                </div>
+                            </div>
+                            <div class="hero-text">
+                                Achieve unprecedented revenue growth through a unique
+                                combination of Branding & performance marketing experience.
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+
+    // scroll els
+    const heroHeading = document.querySelector(".hero-heading");
+    const heroText = document.querySelector(".hero-text");
+    ScrollSmoother.create({
+        content: "#content",
+        wrapper: "#viewport",
+        smooth: 2
+    })
+
+    /* 
+    Setup: wrap your content <div> in another <div> that will serve as the viewport.
+    Call this function FIRST (before you create your ScrollTriggers); it sets the 
+    default "scroller" for you (otherwise it'd be the window/body, but it should be 
+    the content <div>) 
+    */
+    //smoothScroll("#content");
+
+    // pin each box for 300px when they hit the top
+
+    let scrollEls = document.querySelector(".section-hero");
+
+    let scl = ScrollTrigger.create({
+        trigger: scrollEls,
+        pin: ".hero-bg-img",
+        //   start: "-140px top",
+        start: "-140px top",
+        end: "bottom top", //document.querySelector(".section-hero").clientHeight,
+        markers: true,
+    });
+
+
+
+
+    // this is the helper function that sets it all up. Pass in the content <div> and then the wrapping viewport <div> (can be the elements or selector text). It also sets the default "scroller" to the content so you don't have to do that on all your ScrollTriggers.
+    function smoothScroll(content, viewport, smoothness) {
+        content = gsap.utils.toArray(content)[0];
+        smoothness = smoothness || 1;
+
+        gsap.set(viewport || content.parentNode, { overflow: "hidden", position: "fixed", height: "100%", width: "100%", top: 0, left: 0, right: 0, bottom: 0 });
+        gsap.set(content, { overflow: "visible", width: "100%" });
+
+        let getProp = gsap.getProperty(content),
+            setProp = gsap.quickSetter(content, "y", "px"),
+            setScroll = ScrollTrigger.getScrollFunc(window),
+            removeScroll = () => content.style.overflow = "visible",
+            killScrub = trigger => {
+                let scrub = trigger.getTween ? trigger.getTween() : gsap.getTweensOf(trigger.animation)[0]; // getTween() was added in 3.6.2
+                scrub && scrub.pause();
+                trigger.animation.progress(trigger.progress);
+            },
+            height, isProxyScrolling;
+
+        function refreshHeight() {
+            height = content.clientHeight;
+            content.style.overflow = "visible"
+            document.body.style.height = height + "px";
+            return height - document.documentElement.clientHeight;
+        }
+
+        ScrollTrigger.addEventListener("refresh", () => {
+            removeScroll();
+            requestAnimationFrame(removeScroll);
+        })
+        ScrollTrigger.defaults({ scroller: content });
+        ScrollTrigger.prototype.update = p => p; // works around an issue in ScrollTrigger 3.6.1 and earlier (fixed in 3.6.2, so this line could be deleted if you're using 3.6.2 or later)
+
+        ScrollTrigger.scrollerProxy(content, {
+            scrollTop(value) {
+                if (arguments.length) {
+                    isProxyScrolling = true; // otherwise, if snapping was applied (or anything that attempted to SET the scroll proxy's scroll position), we'd set the scroll here which would then (on the next tick) update the content tween/ScrollTrigger which would try to smoothly animate to that new value, thus the scrub tween would impede the progress. So we use this flag to respond accordingly in the ScrollTrigger's onUpdate and effectively force the scrub to its end immediately.
+                    setProp(-value);
+                    setScroll(value);
+                    return;
+                }
+                return getProp("y");
+            },
+            scrollHeight: () => document.body.scrollHeight,
+            getBoundingClientRect() {
+                return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+            }
+        });
+
+        return ScrollTrigger.create({
+            animation: gsap.fromTo(content, { y: 0 }, {
+                y: () => document.documentElement.clientHeight - height,
+                ease: "none",
+                onUpdate: ScrollTrigger.update
+            }),
+            scroller: window,
+            invalidateOnRefresh: true,
+            start: 0,
+            end: refreshHeight,
+            refreshPriority: -999,
+            scrub: smoothness,
+            onUpdate: self => {
+                if (isProxyScrolling) {
+                    killScrub(self);
+                    isProxyScrolling = false;
+                }
+            },
+            onRefresh: killScrub // when the screen resizes, we just want the animation to immediately go to the appropriate spot rather than animating there, so basically kill the scrub.
+        });
+    }
+
+    // for a horizontal version, see https://codepen.io/GreenSock/pen/rNmQPpa?editors=0010
+</script>
+
+</html>

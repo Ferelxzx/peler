@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f5f7fa;
+}
+
+nav {
+    background-color: black;
+    padding: 0.5rem;
+}
+
+
+
+li {
+    list-style: none;
+    display: inline-block;
+    margin-inline: 1rem;
+    position: relative;
+    left: 27rem;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}

@@ -1,0 +1,339 @@
+html {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    line-height: 3.2rem;
+    font-weight: 500;
+    color: #000;
+    background: #fff;
+    overscroll-behavior: none;
+    touch-action: pan-x;
+}
+
+/* General styling */
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.position-fixed {
+    position: fixed;
+}
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-3-cols {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+}
+
+.flex-space-between-center {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-space-between-stretch {
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.flex-center-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-center-start {
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.flex-center-center-column {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 112rem;
+    /* max-width: 124rem; */
+    /* margin: 0 auto; */
+    width: 100%;
+    align-items: start;
+    padding-top: 1rem;
+}
+
+.link-cta {
+    background-color: #63b5e5;
+    padding: 1rem 4rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.outsider {
+    color: #63b5e5;
+}
+
+.highlight {
+    font-size: 2rem;
+    /* text-decoration: underline; */
+    font-weight: 900;
+    border-bottom: 2px solid #000;
+}
+
+/* End of General Styling */
+
+
+/* Content Related Styling */
+
+/* header */
+.header {
+    position: absolute;
+    top: 8rem;
+    z-index: 9999;
+    width: 100%;
+}
+
+.header-container {
+    /* padding: 0 12rem; */
+    max-width: 112rem;
+    margin: 0 auto;
+    /* margin-top: 4rem; */
+}
+
+.main-nav-list {
+    list-style: none;
+}
+
+.main-nav-link:where(:link, :visited) {
+    text-decoration: none;
+    text-transform: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 900;
+    /* background-color: #000; */
+}
+
+.link-spacer {
+    gap: 4rem;
+}
+
+/* Body Top */
+.bkg-content-holder {
+    /* width: 100%; */
+    /*   height: 100%; */
+    /* transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); */
+}
+
+.content-holder {
+    /*   height: 100%; */
+    width: 100%;
+    position: relative;
+    opacity: 1;
+}
+
+.content-top,
+.content-body-fade {
+    bottom: 0;
+    left: 0;
+}
+
+.content-top {
+    height: 100%;
+}
+
+.content-top-content {
+    width: 100%;
+    /*   height: 100%; */
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    background-color: rgb(255, 255, 255);
+}
+
+.content-top-asset picture {
+    width: auto;
+    height: 100%;
+    opacity: 0.1;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content-top-asset {
+    width: auto;
+    max-width: none;
+    height: 100%;
+}
+
+.content-lines {
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%);
+    max-width: 115rem;
+    z-index: -1;
+}
+
+.content-line {
+    height: 100%;
+    border-right: 1px solid #d2d2d2;
+    width: 0;
+}
+
+.content-top .content-body-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 41rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, white 100%);
+}
+
+.body-bkg-img {
+    width: auto;
+    height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+}
+
+/* hero */
+.section-hero {
+    /* display: flex; */
+    width: 100%;
+    min-height: 100vh;
+    padding: 14rem 0 12rem;
+    overflow: hidden;
+}
+
+.hero-title {
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 900;
+    font-size: 3rem;
+    margin-bottom: 14rem;
+    width: 100%;
+}
+
+.hero-title::before {
+    display: block;
+    content: "";
+    border-top: 0.6rem solid #000;
+    width: 13rem;
+    margin-bottom: 2rem;
+}
+
+.hero-heading {
+    line-height: 5rem;
+    z-index: 12;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero-bg-img {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: min(53.125%, 1020px);
+}
+
+.hero-bg-img-main {
+    transform: translate(0, 1.3rem);
+}
+
+/* hero bg-pigeons */
+.hero-bg-pg {
+    max-width: 11%;
+    z-index: 1;
+}
+
+/*  Individual Hero Pigeons*/
+.pg-1 {
+    top: 11%;
+    left: 27%;
+}
+
+.pg-2 {
+    top: 32%;
+    left: 17%;
+    max-width: 7%;
+}
+
+.pg-3 {
+    top: 67%;
+    left: 42%;
+    max-width: 16%;
+}
+
+.pg-4 {
+    top: 49%;
+    right: 6%;
+    max-width: 12%;
+}
+
+.hero-text {
+    max-width: min(41rem, 100%);
+    align-self: flex-end;
+    line-height: 1.5;
+    font-size: 2rem;
+}
+
+
+/* End of content related styling */
+
+
+
+
+/* Smooth Scroll Css */
+
+#viewport {
+    /*   overflow: hidden;
+    position: fixed;
+    height: 100%; */
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#content {
+    overflow: visible;
+    width: 100%;
+    /* set a height because the contents are position: absolute, thus natively there's no height */
+    height: 2400px;
+}
